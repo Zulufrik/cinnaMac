@@ -1,114 +1,74 @@
-# Cinnamon "igualzinho um Mac" — openSUSE Leap 16.1
+# cinnaMac
 
-Configurações essenciais para deixar o Cinnamon com cara e comportamento de macOS, depois de migrar 100% do KDE.
+My personal Cinnamon setup, dressed up to feel like macOS.
 
-## O que está incluído
+This isn't a product or a polished installer — it's a snapshot of how my desktop
+looks and behaves, kept here so I don't lose it and so I can rebuild it on a new
+machine someday. Most of it is just a handful of config files and two small
+helper scripts.
 
-| Item | Onde fica | O que faz |
-|------|-----------|-----------|
-| Painel Mac (menu bar) | `configs/gsettings.sh` | Apenas os applets essenciais: Cinnamenu, título da janela ativa, bandeja (systray, rede, som, energia, calendário) |
-| Launchpad | `configs/cinnamon/Cinnamenu@json/21.json` | Cinnamenu em modo grade, ícones 112 px, sem sidebar/categorias, abre em "Todos os aplicativos", 1900×1040 |
-| Spotlight | `overlay-key = <Super>space` | `Super + Espaço` abre o menu (Launchpad) |
-| Relógio macOS | `configs/cinnamon/calendar@cinnamon.org/15.json` | Formato `%a %d %b  %-I:%M %p` (12 horas) |
-| Bateria | `configs/cinnamon/power@cinnamon.org/power@cinnamon.org.json` | Mostra porcentagem ao lado do ícone |
-| Efeitos (performance) | `configs/gsettings.sh` | Animações de janela e GTK desligadas, `vm.swappiness=10` |
-| Wallpaper dinâmico | `backgrounds/macos-slideshow.xml` | Slideshow Monterey → Ventura → Sonoma → WhiteSur (dark) |
-| Tela de login | `configs/lightdm/slick-greeter.conf` | LightDM + Slick Greeter com logo Apple, tema WhiteSur-Dark |
-| Fallback SDDM | `configs/sddm/kde_settings.conf` | Sessão Cinnamon, tema elarun, cursor WhiteSur |
-| Fontes | `fonts/README.md` | SF Pro (título da barra) e SF Mono Nerd Font |
-| Ícones | `scripts/fix-whitesur-icons.py` | WhiteSur não herda mais do Breeze (útil após remover KDE) |
-| Logo Apple | `scripts/setup-apple-logo.py` | Gera/instala o logo branco no menu e no greeter |
+## What it looks like
 
-## Como usar
+**The top bar.** A single slim panel across the top, holding only what a Mac menu
+bar would: the app launcher on the left, the title of the active window, and the
+usual tray on the right — network, sound, battery, notifications and a clock.
 
-```bash
-# 1. Clone este repositório
-git clone https://github.com/seu-usuario/cinnaMac.git
-cd cinnaMac
+**The launcher.** Cinnamenu, arranged as a full-screen grid of large app icons
+with no sidebar and no categories. It opens straight into "All applications", so
+it behaves more like Launchpad than a traditional menu. `Super + Space` opens it,
+the way Spotlight would.
 
-# 2. Dê permissão de execução
-chmod +x install.sh
+**The clock.** Twelve-hour format, short and quiet: something like
+`Mon 24 Nov  3:42 PM`.
 
-# 3. Rode a instalação (como usuário comum)
-./install.sh
-```
+**The battery.** Percentage shown next to the icon, because I like knowing.
 
-O script pede privilégios de root (`pkexec` ou `sudo`) somente para copiar arquivos de sistema (`/etc/lightdm`, `/etc/sysctl.d`, etc.) e instalar fontes.
+**The wallpaper.** A slow slideshow cycling through the macOS wallpapers over the
+years — Monterey, Ventura, Sonoma — ending on a dark WhiteSur background.
 
-### Após rodar o install.sh
+**The login screen.** LightDM with Slick Greeter, a WhiteSur-dark theme and a
+small white Apple logo instead of the distro branding.
 
-1. Reinicie o computador para validar o **LightDM** com o logo Apple.
-2. O atalho do Launchpad/Spotlight é **Super + Espaço**.
-3. Se o LightDM falhar, use `Ctrl+Alt+F2`, faça login e rode:
-   ```bash
-   sudo /usr/sbin/update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/sddm
-   sudo reboot
-   ```
+**The fonts.** SF Pro for window titles and SF Mono Nerd Font for the terminal and
+code.
 
-## Fontes
+**The icons and cursor.** WhiteSur and WhiteSur-dark throughout, with the matching
+WhiteSur cursor set. There's a small script in here that fixes an old inheritance
+quirk where the icons kept falling back to Breeze after KDE was removed.
 
-As fontes **SF Pro** (barra de título) e **SF Mono Nerd Font** devem ser colocadas em `~/.local/share/fonts`.  
-Veja `fonts/README.md` para instruções de download.
+**The Apple logo.** Another small script that draws and installs the white Apple
+mark used in the menu and on the greeter.
 
-## Limitação conhecida
+**The feel.** Window and GTK animations turned off, and `vm.swappiness` lowered.
+Not because the machine is slow — I just prefer things to snap instead of glide.
 
-O Cinnamon não fornece nativamente uma barra de menus global estilo macOS (`Arquivo`, `Editar`, `Visualizar` no painel superior). Isso é uma limitação do próprio ambiente e foi aceita como tal.
+## One honest limitation
 
-## Requisitos
+Cinnamon has no real global menu bar. There's no way to get `File`, `Edit`,
+`View` living up in the panel the way macOS does it, so the window title sits
+there instead. That's a limitation of the desktop environment itself, and I
+made peace with it.
 
-- openSUSE Leap 16.1 (ou similar)
-- Cinnamon 6.x
-- LightDM + Slick Greeter
-- Tema de ícones WhiteSur / WhiteSur-dark
-- Cursores WhiteSur-cursors
+## The backup
 
-## Licença
+Next to the visual stuff there's a plain-text copy of my Cinnamon preferences, so
+the whole look and feel can be put back without clicking through every setting by
+hand. Two small scripts keep it up to date: one saves the current state, the other
+restores it — the restore asks before it overwrites anything, and can show what it
+would do first.
 
-MIT — veja `LICENSE`.
+Before anything is saved, a few things are quietly stripped out: command history,
+the last night-light location, and my home directory (swapped for a placeholder so
+my username never shows up in a public repo). It covers Cinnamon's own settings,
+but not the per-applet JSON files or any other part of the system.
 
-## Backup e restauração das configurações do Cinnamon (dconf)
+## A note on portability
 
-Este repositório também guarda um backup textual das preferências do Cinnamon
-em `backup/cinnamon.dconf`, gerado com `dconf dump /org/cinnamon/`.
+This is a snapshot of one machine, not a template. Cinnamon versions drift, keys
+come and go, and extensions and applets have to be installed separately for any
+of this to look right. If you're reading this hoping to reproduce it exactly:
+good luck, and start with the themes and fonts.
 
-> **O repositório é público.** Revise o arquivo antes de publicar. O script
-> remove o histórico de comandos e a última localização do night light, e troca
-> o caminho da sua home por `__HOME__` para não versionar o nome de usuário.
+## License
 
-### Fazer backup
-
-```bash
-scripts/backup-cinnamon.sh
-```
-
-Gera ou atualiza `backup/cinnamon.dconf`. Requer o `dconf`
-(`dconf-cli` no Linux Mint/Debian, `dconf` no openSUSE).
-
-### Restaurar
-
-```bash
-scripts/restore-cinnamon.sh --dry-run   # só mostra o que seria aplicado
-scripts/restore-cinnamon.sh             # pede confirmação ('sim')
-```
-
-**Restaurar substitui as preferências atuais do Cinnamon** (painel, temas,
-fontes, efeitos, atalhos etc.). O script pede confirmação antes de gravar.
-Depois, reinicie o Cinnamon (`cinnamon --replace &`) ou faça logout/login.
-
-### Revisar o diff antes de commitar
-
-```bash
-git diff -- backup/cinnamon.dconf
-git diff
-```
-
-### Limitações
-
-- Versões diferentes do Cinnamon podem ter chaves diferentes; chaves
-  desconhecidas são ignoradas pelo `dconf load`.
-- Extensões e applets precisam estar instalados para funcionarem; o backup
-  guarda a lista em `enabled-applets` e `enabled-extensions`, mas não os
-  arquivos das extensões.
-- Applets que guardam configuração em JSON (`~/.config/cinnamon/spices/`) não
-  são incluídos por este backup de dconf.
-- O backup cobre apenas `/org/cinnamon/`; não inclui outros caminhos do dconf.
+MIT — see `LICENSE`.
