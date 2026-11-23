@@ -204,7 +204,17 @@ fi
 echo "   OK: display manager = $(readlink -f /etc/alternatives/default-displaymanager 2>/dev/null || echo desconhecido)"
 
 # -----------------------------------------------------------------------------
-# 9. Reiniciar Cinnamon
+# 9. LibreOffice com o tema do Cinnamon (GTK3)
+# -----------------------------------------------------------------------------
+echo -e "\n==> Integrando LibreOffice ao tema do Cinnamon..."
+if command -v libreoffice >/dev/null 2>&1; then
+    bash "${SCRIPT_DIR}/scripts/fix-libreoffice-gtk3.sh"
+else
+    echo "   LibreOffice nao instalado; pulando."
+fi
+
+# -----------------------------------------------------------------------------
+# 10. Reiniciar Cinnamon
 # -----------------------------------------------------------------------------
 echo -e "\n==> Reiniciando o Cinnamon para aplicar..."
 dbus-send --session --print-reply --dest=org.Cinnamon /org/Cinnamon org.Cinnamon.RestartCinnamon boolean:true >/dev/null 2>&1 || true

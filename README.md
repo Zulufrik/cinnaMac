@@ -5,7 +5,6 @@ looks and behaves (BEWARE IT MAY NOT WORK IN YOUR MACHINE). Most of it is just a
 helper scripts.
 
 
- 
 ## One honest limitation
 
 Cinnamon has no real global menu bar. Unfortunately there is no way to get `File`, `Edit`,
@@ -13,6 +12,14 @@ Cinnamon has no real global menu bar. Unfortunately there is no way to get `File
 //
 <img width="407" height="40" alt="image" src="https://github.com/user-attachments/assets/b102884d-98c5-4cc7-b32f-2b1f8c0424b0" />
 
+
+## LibreOffice
+
+It ships with several UI backends and, left alone, picks one that doesn't match
+Cinnamon — the windows end up looking like a different desktop entirely. A tiny
+launcher forces the GTK3 backend so it inherits the same theme, icons and fonts
+as everything else. A script installs the missing `libreoffice-gtk3` piece and
+drops that launcher in place.
 
 ## The backup
 

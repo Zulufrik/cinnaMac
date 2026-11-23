@@ -1,0 +1,14 @@
+#!/bin/bash
+# LibreOffice launcher that makes it follow the Cinnamon (GTK3) theme.
+#
+# Without the GTK3 VCL backend, LibreOffice falls back to its generic X11
+# backend, which draws its own widgets and ignores the desktop theme, icons
+# and fonts. Forcing SAL_USE_VCLPLUGIN=gtk3 keeps it consistent with Cinnamon.
+for dir in /usr/lib64/libreoffice/program /usr/lib/libreoffice/program; do
+    if [ -f "$dir/libvclplug_gtk3lo.so" ]; then
+        export SAL_USE_VCLPLUGIN=gtk3
+        break
+    fi
+done
+
+exec /usr/bin/libreoffice "$@"
