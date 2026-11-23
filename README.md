@@ -23,8 +23,8 @@ Configurações essenciais para deixar o Cinnamon com cara e comportamento de ma
 
 ```bash
 # 1. Clone este repositório
-git clone https://github.com/seu-usuario/cinnamon-macos-config.git
-cd cinnamon-macos-config
+git clone https://github.com/seu-usuario/cinnaMac.git
+cd cinnaMac
 
 # 2. Dê permissão de execução
 chmod +x install.sh
