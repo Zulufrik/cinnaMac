@@ -39,6 +39,13 @@ come and go, and extensions and applets have to be installed separately for any
 of this to look right. If you're reading this hoping to reproduce it exactly:
 good luck, and start with the themes and fonts.
 
+## Keeping it tidy
+
+There's a small read-only audit script that looks for the kind of silent
+conflicts that make a single app look out of place — a stale theme name left in
+`settings.ini`, a Qt variable fighting another one, a wallpaper pointing at a
+file that no longer exists. It only reports; it never changes anything.
+
 ## License
 
 MIT — see `LICENSE`.

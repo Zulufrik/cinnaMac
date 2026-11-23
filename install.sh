@@ -214,7 +214,16 @@ else
 fi
 
 # -----------------------------------------------------------------------------
-# 10. Reiniciar Cinnamon
+# 10. Tema dos apps Qt (GTK3)
+# -----------------------------------------------------------------------------
+echo -e "\n==> Unificando o tema dos apps Qt..."
+mkdir -p "${USER_HOME}/.config/environment.d"
+cp "${CONFIGS}/qt/qt.conf" "${USER_HOME}/.config/environment.d/qt.conf"
+need_root install -m 644 "${CONFIGS}/qt/zz-qt-theme.sh" /etc/profile.d/zz-qt-theme.sh
+echo "   OK: Qt5 e Qt6 seguem o tema GTK (WhiteSur-Dark)."
+
+# -----------------------------------------------------------------------------
+# 11. Reiniciar Cinnamon
 # -----------------------------------------------------------------------------
 echo -e "\n==> Reiniciando o Cinnamon para aplicar..."
 dbus-send --session --print-reply --dest=org.Cinnamon /org/Cinnamon org.Cinnamon.RestartCinnamon boolean:true >/dev/null 2>&1 || true
