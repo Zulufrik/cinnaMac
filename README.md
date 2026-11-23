@@ -10,6 +10,7 @@ helper scripts.
 
 Cinnamon has no real global menu bar. Unfortunately there is no way to get `File`, `Edit`,
 `View` living up in the panel the way macOS does it :/. As an aesthetic alternative i tweaked the Calendar applet by just inserting the text on it. That's a limitation of the desktop environment itself.
+//
 <img width="407" height="40" alt="image" src="https://github.com/user-attachments/assets/b102884d-98c5-4cc7-b32f-2b1f8c0424b0" />
 
 
