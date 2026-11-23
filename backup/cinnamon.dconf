@@ -1,0 +1,197 @@
+[/]
+alttab-switcher-delay=0
+alttab-switcher-style='icons'
+alttab-switcher-warp-mouse-pointer=true
+desklet-snap-interval=25
+desktop-effects=false
+desktop-effects-change-size=false
+desktop-effects-close='none'
+desktop-effects-map='none'
+desktop-effects-minimize='none'
+desktop-effects-on-dialogs=false
+desktop-effects-on-menus=false
+desktop-effects-workspace=false
+enabled-applets=['panel1:left:0:Cinnamenu@json:21', 'panel1:right:16:systray@cinnamon.org:3', 'panel1:right:17:network@cinnamon.org:10', 'panel1:right:18:sound@cinnamon.org:11', 'panel1:right:19:power@cinnamon.org:12', 'panel1:right:20:calendar@cinnamon.org:15', 'panel1:right:12:color-picker@fmete:28', 'panel1:right:11:keyboard@cinnamon.org:29', 'panel1:right:8:notifications@cinnamon.org:32', 'panel1:left:2:calendar@cinnamon.org:38']
+enabled-desklets=@as []
+enabled-extensions=['mint-dock@hilyxx', 'CinnamonMagicLamp@klangman', 'transparent-panels@germanfr', 'watermark@germanfr', 'compiz-windows-effect@hermes83.github.com']
+hotcorner-layout=['expo:false:0', 'scale:false:0', 'scale:false:0', 'desktop:false:0']
+hoverclick-position='960::553'
+next-applet-id=41
+next-desklet-id=1
+no-adjacent-panel-barriers=false
+panel-edit-mode=false
+panel-zone-icon-sizes='[{"panelId": 1, "left": 0, "center": 48, "right": 0}]'
+panel-zone-symbolic-icon-sizes='[{"panelId": 1, "left": 33, "center": 19, "right": 16}]'
+panel-zone-text-sizes='[{"panelId": 1, "left": 0.0, "center": 9.0, "right": 0.0}]'
+panels-autohide=['1:false']
+panels-enabled=['1:0:top']
+panels-height=['1:28']
+startup-animation=false
+window-effect-speed=2
+workspace-expo-view-as-grid=false
+
+[cinnamon-session]
+quit-time-delay=60
+
+[desktop/a11y/applications]
+screen-keyboard-enabled=false
+screen-reader-enabled=false
+
+[desktop/a11y/keyboard]
+bouncekeys-delay=300
+mousekeys-accel-time=300
+mousekeys-init-delay=300
+mousekeys-max-speed=10
+slowkeys-delay=300
+
+[desktop/a11y/mouse]
+dwell-click-enabled=false
+dwell-threshold=10
+dwell-time=1.2
+secondary-click-enabled=false
+secondary-click-time=0.5
+
+[desktop/applications/calculator]
+exec='gnome-calculator'
+
+[desktop/applications/terminal]
+exec='gnome-terminal'
+exec-arg='--'
+
+[desktop/background]
+picture-options='zoom'
+picture-uri='file://__HOME__/Downloads/Entrance.jpg'
+
+[desktop/background/slideshow]
+delay=15
+image-source='directory://__HOME__/Downloads'
+
+[desktop/interface]
+clock-show-date=false
+cursor-blink-time=1200
+cursor-size=35
+cursor-theme='macOS-Monterey'
+enable-animations=false
+font-name='SF Pro 11'
+gtk-overlay-scrollbars=true
+gtk-theme='WhiteSur-Dark'
+gtk-theme-backup='Mojave-Dark'
+icon-theme='WhiteSur-dark'
+icon-theme-backup='WhiteSur-dark'
+text-scaling-factor=1.0
+toolkit-accessibility=false
+
+[desktop/keybindings]
+custom-list=['__dummy__']
+
+[desktop/keybindings/media-keys]
+area-screenshot=@as []
+area-screenshot-clip=['<Shift><Super>s']
+screenshot-clip=['<Shift><Alt>s']
+
+[desktop/keybindings/wm]
+begin-resize=['<Super>Alt_R']
+close=['<Alt>F4', '<Super>BackSpace']
+maximize=@as []
+minimize=['<Super>Shift_R']
+move-to-center=['<Super>backslash']
+toggle-maximized=['<Super>Return']
+
+[desktop/media-handling]
+autorun-never=false
+
+[desktop/notifications]
+bottom-notifications=false
+notification-duration=3
+remove-old=true
+
+[desktop/peripherals/keyboard]
+delay=uint32 418
+repeat-interval=uint32 33
+
+[desktop/peripherals/mouse]
+accel-profile='flat'
+double-click=400
+drag-threshold=8
+speed=-0.027956989247311825
+
+[desktop/peripherals/touchpad]
+disable-while-typing=false
+natural-scroll=false
+speed=0.096774193548387011
+
+[desktop/screensaver]
+default-message='Hello, Matheus!'
+font-date='SF Pro weight=590 24'
+font-message='SF Pro weight=274 14'
+font-time='SF Pro weight=509 64'
+use-custom-format=false
+
+[desktop/session]
+idle-delay=uint32 1800
+
+[desktop/sound]
+event-sounds=false
+
+[desktop/wm/preferences]
+action-middle-click-titlebar='menu'
+button-layout='close,minimize,maximize:'
+min-window-opacity=30
+mouse-button-modifier='<Alt>'
+theme='WhiteSur-Dark'
+theme-backup='WhiteSur-Dark'
+titlebar-font='SF Pro weight=860 11'
+
+[gestures]
+pinch-percent-threshold=uint32 40
+swipe-down-2='PUSH_TILE_DOWN::end'
+swipe-down-3='TOGGLE_OVERVIEW::end'
+swipe-down-4='VOLUME_DOWN::end'
+swipe-left-2='PUSH_TILE_LEFT::end'
+swipe-left-3='WORKSPACE_NEXT::end'
+swipe-left-4='WINDOW_WORKSPACE_PREVIOUS::end'
+swipe-percent-threshold=uint32 60
+swipe-right-2='PUSH_TILE_RIGHT::end'
+swipe-right-3='WORKSPACE_PREVIOUS::end'
+swipe-right-4='WINDOW_WORKSPACE_NEXT::end'
+swipe-up-2='PUSH_TILE_UP::end'
+swipe-up-3='TOGGLE_EXPO::end'
+swipe-up-4='VOLUME_UP::end'
+tap-3='MEDIA_PLAY_PAUSE::end'
+
+[launcher]
+check-frequency=300
+memory-limit=2048
+
+[muffin]
+draggable-border-width=9
+experimental-features=['scale-monitor-framebuffer', 'x11-randr-fractional-scaling']
+tile-maximize=true
+workspace-cycle=true
+
+[settings-daemon/peripherals/keyboard]
+numlock-state='off'
+
+[settings-daemon/peripherals/touchscreen]
+orientation-lock=false
+
+[settings-daemon/plugins/color]
+night-light-enabled=true
+night-light-temperature=uint32 1700
+
+[settings-daemon/plugins/power]
+idle-dim-battery=false
+lid-close-ac-action='suspend'
+lid-close-battery-action='suspend'
+sleep-display-ac=1800
+sleep-display-battery=1800
+sleep-inactive-ac-timeout=0
+sleep-inactive-battery-timeout=0
+
+[settings-daemon/plugins/xsettings]
+buttons-have-icons=false
+hinting='full'
+menus-have-icons=false
+
+[theme]
+name='WhiteSur-Dark'

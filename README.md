@@ -65,3 +65,50 @@ O Cinnamon não fornece nativamente uma barra de menus global estilo macOS (`Arq
 ## Licença
 
 MIT — veja `LICENSE`.
+
+## Backup e restauração das configurações do Cinnamon (dconf)
+
+Este repositório também guarda um backup textual das preferências do Cinnamon
+em `backup/cinnamon.dconf`, gerado com `dconf dump /org/cinnamon/`.
+
+> **O repositório é público.** Revise o arquivo antes de publicar. O script
+> remove o histórico de comandos e a última localização do night light, e troca
+> o caminho da sua home por `__HOME__` para não versionar o nome de usuário.
+
+### Fazer backup
+
+```bash
+scripts/backup-cinnamon.sh
+```
+
+Gera ou atualiza `backup/cinnamon.dconf`. Requer o `dconf`
+(`dconf-cli` no Linux Mint/Debian, `dconf` no openSUSE).
+
+### Restaurar
+
+```bash
+scripts/restore-cinnamon.sh --dry-run   # só mostra o que seria aplicado
+scripts/restore-cinnamon.sh             # pede confirmação ('sim')
+```
+
+**Restaurar substitui as preferências atuais do Cinnamon** (painel, temas,
+fontes, efeitos, atalhos etc.). O script pede confirmação antes de gravar.
+Depois, reinicie o Cinnamon (`cinnamon --replace &`) ou faça logout/login.
+
+### Revisar o diff antes de commitar
+
+```bash
+git diff -- backup/cinnamon.dconf
+git diff
+```
+
+### Limitações
+
+- Versões diferentes do Cinnamon podem ter chaves diferentes; chaves
+  desconhecidas são ignoradas pelo `dconf load`.
+- Extensões e applets precisam estar instalados para funcionarem; o backup
+  guarda a lista em `enabled-applets` e `enabled-extensions`, mas não os
+  arquivos das extensões.
+- Applets que guardam configuração em JSON (`~/.config/cinnamon/spices/`) não
+  são incluídos por este backup de dconf.
+- O backup cobre apenas `/org/cinnamon/`; não inclui outros caminhos do dconf.

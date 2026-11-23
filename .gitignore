@@ -20,3 +20,10 @@ __pycache__/
 Thumbs.db
 .idea/
 .vscode/
+
+# Temporários / artefatos locais (backup do dconf)
+*.tmp
+*.swp
+*.swo
+*~
+backup/*.tmp
