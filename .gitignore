@@ -1,0 +1,22 @@
+# Binários grandes / assets que não devem ir no git
+assets/apple-logo-source.png
+*.png
+*.jpg
+*.jpeg
+
+# Fontes (baixadas pelo install.sh)
+*.ttf
+*.otf
+*.zip
+
+# Cache / temporários
+__pycache__/
+*.pyc
+*.bak-*
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

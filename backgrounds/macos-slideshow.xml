@@ -1,0 +1,22 @@
+<background>
+  <starttime>
+    <year>2026</year><month>11</month><day>22</day>
+    <hour>6</hour><minute>0</minute><second>0</second>
+  </starttime>
+  <static>
+    <duration>1800.0</duration>
+    <file>/home/zulu/.local/share/backgrounds/Monterey-dark.jpg</file>
+  </static>
+  <static>
+    <duration>1800.0</duration>
+    <file>/home/zulu/.local/share/backgrounds/Ventura-dark.jpg</file>
+  </static>
+  <static>
+    <duration>1800.0</duration>
+    <file>/home/zulu/.local/share/backgrounds/Sonoma-dark.jpg</file>
+  </static>
+  <static>
+    <duration>1800.0</duration>
+    <file>/home/zulu/.local/share/backgrounds/WhiteSur-dark.jpg</file>
+  </static>
+</background>
